@@ -86,6 +86,7 @@ export default {
     font-family: 'Poppins';
     display: grid;
     justify-content: center;
+    transition: 500ms all;
     background-color: #090811;
 
     .container {
@@ -110,6 +111,13 @@ export default {
         margin-left: auto;
         margin-right: auto;
         font-size: 20px;
+
+        i {
+            padding: 10px;
+            background-color: rgba(184, 184, 184, 0.178);
+            border-radius: 5px;
+
+        }
     }
 
     .photo {
@@ -168,6 +176,7 @@ export default {
             i {
                 cursor: pointer;
                 color: white;
+            
             }
 
             a {
