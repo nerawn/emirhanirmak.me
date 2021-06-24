@@ -1,29 +1,33 @@
 <template>
-<div id="app" :style="{backgroundColor: backgroundColor}">
+<div id="app" :style="{ backgroundColor: backgroundColor }">
     <div class="container">
         <div class="moon col">
-            <i class="far fa-moon pointer" :class="{ fas: DarkMode , far: !DarkMode }" :style="{color:color}" @click="darkCounter"></i>
+            <i class="far fa-moon pointer" :class="{ fas: DarkMode, far: !DarkMode }" :style="{ color: color }" @click="darkCounter"></i>
         </div>
         <div class="photo col">
-            <img src="@/assets/hero.jpg">
-            <h3 class="mt-1m" :style="{color:color}">Emirhan Irmak</h3>
+            <img src="@/assets/hero.jpg" />
+            <h3 class="mt-1m" :style="{ color: color }">Emirhan Irmak</h3>
         </div>
-        <div class="about col" :style="{color:color}">
+        <div class="about col" :style="{ color: color }">
             <h1>Hakkımda</h1>
-            <p>Merhaba ben Emirhan, 18 yaşındayım. Teknik lise elektronik bölümü mezunuyum.
-                Hobi Devreleri, Web uygulamaları ve tasarımları ile ilgilenmekteyim. Vue js ve adobe xd ilgi alanlarımdan birkaçı.
-                Yeni projeler ve fikirler geliştirmek motivasyon alanım.</p>
-            <button class="btn primary" onclick="window.location.href='https://irmak.dev' ">Blog Sitem</button>
-
+            <p>
+                Merhaba ben Emirhan, 18 yaşındayım. Teknik lise elektronik bölümü
+                mezunuyum. Hobi Devreleri, Web uygulamaları ve tasarımları ile
+                ilgilenmekteyim. Vue.js ve Adobe XD ilgi alanlarımdan birkaçı. Yeni
+                projeler ve fikirler geliştirmek motivasyon alanım.
+            </p>
+            <button class="btn primary" onclick="window.location.href='https://irmak.dev' ">
+                Blog Sitem
+            </button>
         </div>
 
         <div class="icons col">
             <div class="icons-container">
-                <a href=""><i class="fab fa-youtube" :style="{color:color}"></i></a>
-                <a href="https://instagram.com/nerawn"><i class="fab fa-instagram" :style="{color:color}"></i></a>
-                <a href="https://github.com/nerawn"><i class="fab fa-github" :style="{color:color}"></i></a>
-                <a href="https://twitter.com/nerawn_"><i class="fab fa-twitter" :style="{color:color}"></i></a>
-                <a href="mailto:emirhan@irmak.dev"><i class="far fa-envelope" :style="{color:color}"></i></a>
+                <a href=""><i class="fab fa-youtube" :style="{ color: color }"></i></a>
+                <a href="https://instagram.com/nerawn"><i class="fab fa-instagram" :style="{ color: color }"></i></a>
+                <a href="https://github.com/nerawn"><i class="fab fa-github" :style="{ color: color }"></i></a>
+                <a href="https://twitter.com/nerawn_"><i class="fab fa-twitter" :style="{ color: color }"></i></a>
+                <a href="mailto:emirhan@irmak.dev"><i class="far fa-envelope" :style="{ color: color }"></i></a>
             </div>
         </div>
 
@@ -31,63 +35,53 @@
             <i class="fab fa-vuejs"></i>
         </div>
     </div>
-
 </div>
 </template>
 
 <script>
 export default {
-    name: 'App',
+    name: "App",
     data() {
         return {
             DarkMode: false,
-            backgroundColor: 'white',
-            color: '#090811',
-            dark: 0
-        }
+            backgroundColor: "white",
+            color: "#090811",
+            dark: 0,
+        };
     },
 
     watch: {
         dark(val) {
             if (val == 0) {
-                this.DarkMode = false
-                this.backgroundColor = 'white',
-                    this.color = '#090811'
-
+                this.DarkMode = false;
+                (this.backgroundColor = "white"), (this.color = "#090811");
             }
             if (val == 1) {
-                this.DarkMode = true,
-                    this.backgroundColor = '#090811',
-                    this.color = 'white'
+                (this.DarkMode = true),
+                (this.backgroundColor = "#090811"),
+                (this.color = "white");
             }
-
         },
         DarkMode(value) {
             if (value == true)
-                this.backgroundColor = '#090811',
-                this.color = 'white'
-        }
-
+                (this.backgroundColor = "#090811"), (this.color = "white");
+        },
     },
     methods: {
         darkCounter() {
-            this.dark++
-            if (this.dark == 2)
-                this.dark = 0
-
-        }
+            this.dark++;
+            if (this.dark == 2) this.dark = 0;
+        },
     },
-
-}
+};
 </script>
 
 <style lang="scss">
 #app {
-    font-family: 'Poppins';
+    font-family: "Poppins";
     display: grid;
     justify-content: center;
     transition: 500ms all;
-    background-color: #090811;
 
     .container {
         width: 768px;
@@ -95,14 +89,13 @@ export default {
         grid-template-rows: repeat(7, 1fr);
         height: 100vh;
         grid-gap: 10px;
-        color: white;
+     
 
         .col {
             display: grid;
             width: 720px;
             margin-left: auto;
             margin-right: auto;
-
         }
     }
 
@@ -116,12 +109,10 @@ export default {
             padding: 10px;
             background-color: rgba(184, 184, 184, 0.178);
             border-radius: 5px;
-
         }
     }
 
     .photo {
-
         place-items: flex-start center;
         font-size: 20px;
 
@@ -151,15 +142,13 @@ export default {
             line-height: 1.5;
             font-size: 16px;
             text-align: center;
-
         }
 
         .btn {
             width: 30%;
             letter-spacing: 0.5px;
-            color: white;
             font-weight: 500;
-            font-family: 'Poppins';
+            font-family: "Poppins";
         }
     }
 
@@ -173,16 +162,6 @@ export default {
             grid-template-columns: repeat(5, 1fr);
             column-gap: 1.5em;
 
-            i {
-                cursor: pointer;
-                color: white;
-            
-            }
-
-            a {
-                color: white;
-            }
-
         }
     }
 
@@ -192,7 +171,7 @@ export default {
     }
 }
 
-@media screen and (max-width:576px) {
+@media screen and (max-width: 576px) {
     .container {
         width: 320px !important;
         height: 100%;
@@ -224,9 +203,27 @@ export default {
         .vue {
             place-items: flex-start center !important;
             grid-template-rows: 50px;
-            color: #3bc765ab;
         }
     }
+}
 
+@media screen and (max-height: 768px) {
+
+    #app {
+        min-height: 620px;
+        overflow: auto;
+    }
+
+    .container {
+        grid-template-rows: repeat(6, 1fr);
+        min-height: 620px;
+        overflow: auto;
+
+    }
+
+    .about {
+        grid-row-start: 3 !important;
+        grid-row-end: 6 !important;
+    }
 }
 </style>
